@@ -1,3 +1,19 @@
 <h1><%= @user.name %>のページ</h1>
 
 <p>メールアドレス: <%= @user.email %></p>
+<hr>
+
+  <% count = 0 %>
+  <% @login_user_blogs.each do |blog| %>
+  <% count += blog.favorites.count if blog.favorites.present? %>
+  <% end %>
+<p>お気に入り合計:  <%= count %> </p>
+<br>
+<h3>お気に入り一覧</h3>
+<% @favorites.each do |favorite| %>
+<p>user:<%= favorite.blog.user.name %></p>
+<P>title:<%= favorite.blog.title %></p>
+<P>content:<%= favorite.blog.content %></p>
+<% end %>
+<br>
+<br>
