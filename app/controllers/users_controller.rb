@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -15,6 +16,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favorites = current_user.favorites
+    @favorited_total_counts = Favorite.joins(blog: :user).where(users: {id: @user.id}).count
   end
 
   private
