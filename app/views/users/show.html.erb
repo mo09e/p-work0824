@@ -2,12 +2,7 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 <hr>
-
-  <% count = 0 %>
-  <% @login_user_blogs.each do |blog| %>
-  <% count += blog.favorites.count if blog.favorites.present? %>
-  <% end %>
-<p>お気に入り合計:  <%= count %> </p>
+<p>お気に入り合計:  <%= @favorited_total_counts %> </p>
 <br>
 <h3>お気に入り一覧</h3>
 <% @favorites.each do |favorite| %>
